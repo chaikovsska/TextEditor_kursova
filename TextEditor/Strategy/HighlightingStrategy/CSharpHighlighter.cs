@@ -1,0 +1,96 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
+using TextEditor.Strategy.HighlightingStrategy.Tokenizing;
+
+namespace TextEditor.Strategy.HighlightingStrategy
+{
+    public class CSharpHighlighter : ISyntaxHighlighter
+    {
+        private static readonly HashSet<string> Keywords = new HashSet<string>
+        {
+            "public", "private", "class", "void", "int", "string", "return",
+            "if", "else", "for", "while", "true", "false", "null", "new"
+        };
+
+        public List<Token> Tokenize(string text)
+        {
+            List<Token> tokens = new List<Token>();
+            int i = 0;
+
+            while (i < text.Length)
+            {
+                char c = text[i];
+
+                if (c == '/' && i + 1 < text.Length && text[i + 1] == '/')
+                {
+                    int start = i;
+                    while (i < text.Length && text[i] != '\n') i++;
+
+                    tokens.Add(new Token
+                    {
+                        Start = start,
+                        Length = i - start,
+                        Type = TokenType.Comment
+                    });
+
+                    continue;
+                }
+
+                if (c == '"')
+                {
+                    int start = i++;
+                    while (i < text.Length && text[i] != '"') i++;
+                    if (i < text.Length) i++;
+
+                    tokens.Add(new Token
+                    {
+                        Start = start,
+                        Length = i - start,
+                        Type = TokenType.StringLiteral
+                    });
+
+                    continue;
+                }
+
+                if (char.IsDigit(c))
+                {
+                    int start = i;
+                    while (i < text.Length && (char.IsDigit(text[i]) || text[i] == '.')) i++;
+
+                    tokens.Add(new Token
+                    {
+                        Start = start,
+                        Length = i - start,
+                        Type = TokenType.Number
+                    });
+
+                    continue;
+                }
+
+                if (char.IsLetter(c))
+                {
+                    int start = i;
+                    while (i < text.Length && char.IsLetterOrDigit(text[i])) i++;
+
+                    string word = text.Substring(start, i - start);
+
+                    tokens.Add(new Token
+                    {
+                        Start = start,
+                        Length = word.Length,
+                        Type = Keywords.Contains(word) ? TokenType.Keyword : TokenType.Identifier
+                    });
+
+                    continue;
+                }
+
+                i++;
+            }
+
+            return tokens;
+        }
+    }
+}

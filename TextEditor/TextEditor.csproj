@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{963BEB0E-E878-439A-9E69-EB7A4D003EF7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TextEditor</RootNamespace>
+    <AssemblyName>TextEditor</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.1.66\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.1\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.119.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Command\CommandInvoker.cs" />
+    <Compile Include="Command\CopyCommand.cs" />
+    <Compile Include="Command\CutCommand.cs" />
+    <Compile Include="Command\ExitCommand.cs" />
+    <Compile Include="Command\FindCommand.cs" />
+    <Compile Include="Command\GoToLineCommand.cs" />
+    <Compile Include="Command\OpenCommand.cs" />
+    <Compile Include="Command\PasteCommand.cs" />
+    <Compile Include="Command\RedoCommand.cs" />
+    <Compile Include="Command\SaveAsCommand.cs" />
+    <Compile Include="Command\SaveCommand.cs" />
+    <Compile Include="Command\SelectAllCommand.cs" />
+    <Compile Include="Command\TextChangeCommand.cs" />
+    <Compile Include="Command\UndoCommand.cs" />
+    <Compile Include="Command\ZoomInCommand.cs" />
+    <Compile Include="Command\ZoomOutCommand.cs" />
+    <Compile Include="Composite\Gutter\BookmarkLayer.cs" />
+    <Compile Include="Composite\Gutter\GutterService.cs" />
+    <Compile Include="Composite\Gutter\IGutterLayer.cs" />
+    <Compile Include="Composite\Gutter\LineNumberLayer.cs" />
+    <Compile Include="Database\DatabaseService.cs" />
+    <Compile Include="Mediator\EditorMediator.cs" />
+    <Compile Include="Command\ICommand.cs" />
+    <Compile Include="Model\EditorMetadata.cs" />
+    <Compile Include="Features\Bookmarks\Bookmark.cs" />
+    <Compile Include="Features\Bookmarks\IBookmarkRepository.cs" />
+    <Compile Include="Features\Bookmarks\SqlBookmarkRepository.cs" />
+    <Compile Include="Features\Macro\Hotkey.cs" />
+    <Compile Include="Features\Macro\HotkeyService.cs" />
+    <Compile Include="Features\Macro\IMacroRepository.cs" />
+    <Compile Include="Features\Macro\Macro.cs" />
+    <Compile Include="Features\Macro\MacroAction.cs" />
+    <Compile Include="Features\Macro\MacroRecorder.cs" />
+    <Compile Include="Features\Macro\MacroService.cs" />
+    <Compile Include="Features\Macro\SqlMacroRepository.cs" />
+    <Compile Include="Features\Snippets\ISnippetRepository.cs" />
+    <Compile Include="Features\Snippets\Snippet.cs" />
+    <Compile Include="Features\Snippets\SnippetService.cs" />
+    <Compile Include="Features\Snippets\SqlSnippetRepository.cs" />
+    <Compile Include="Forms\FindForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FindForm.Designer.cs">
+      <DependentUpon>FindForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GoToLineForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GoToLineForm.Designer.cs">
+      <DependentUpon>GoToLineForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mediator\IEditorMediator.cs" />
+    <Compile Include="Forms\MacroSaveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MacroSaveForm.Designer.cs">
+      <DependentUpon>MacroSaveForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Command\NewCommand.cs" />
+    <Compile Include="Memento\EditorOriginator.cs" />
+    <Compile Include="Memento\TextEditorMemento.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Forms\RenameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RenameForm.Designer.cs">
+      <DependentUpon>RenameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\RichTextBoxExtensions.cs" />
+    <Compile Include="Services\EditorFactory.cs" />
+    <Compile Include="Services\FileService.cs" />
+    <Compile Include="Services\HighlighterService.cs" />
+    <Compile Include="Services\SuggestionService.cs" />
+    <Compile Include="Services\TabManager.cs" />
+    <Compile Include="Forms\SnippetAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SnippetAddForm.Designer.cs">
+      <DependentUpon>SnippetAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Strategy\EncodingStrategy\AsciiEncodingStrategy.cs" />
+    <Compile Include="Strategy\EncodingStrategy\BomEncodingStrategy.cs" />
+    <Compile Include="Strategy\EncodingStrategy\EncodingDetector.cs" />
+    <Compile Include="Strategy\EncodingStrategy\HeuristicEncodingStrategy.cs" />
+    <Compile Include="Strategy\EncodingStrategy\IEncodingStrategy.cs" />
+    <Compile Include="Strategy\HighlightingStrategy\CSharpHighlighter.cs" />
+    <Compile Include="Strategy\HighlightingStrategy\CssHighlighter.cs" />
+    <Compile Include="Strategy\HighlightingStrategy\ISyntaxHighlighter.cs" />
+    <Compile Include="Strategy\HighlightingStrategy\JavaHighlighter.cs" />
+    <Compile Include="Strategy\HighlightingStrategy\JavaScriptHighlighter.cs" />
+    <Compile Include="Strategy\HighlightingStrategy\JsonHighlighter.cs" />
+    <Compile Include="Strategy\HighlightingStrategy\PlainTextHighlighter.cs" />
+    <Compile Include="Strategy\HighlightingStrategy\PythonHighlighter.cs" />
+    <Compile Include="Strategy\HighlightingStrategy\SyntaxHighlighterContext.cs" />
+    <Compile Include="Strategy\HighlightingStrategy\Tokenizing\Token.cs" />
+    <Compile Include="Strategy\HighlightingStrategy\Tokenizing\TokenRenderer.cs" />
+    <Compile Include="Strategy\HighlightingStrategy\Tokenizing\TokenType.cs" />
+    <Compile Include="Strategy\HighlightingStrategy\XmlHighlighter.cs" />
+    <EmbeddedResource Include="Forms\FindForm.resx">
+      <DependentUpon>FindForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GoToLineForm.resx">
+      <DependentUpon>GoToLineForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MacroSaveForm.resx">
+      <DependentUpon>MacroSaveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\RenameForm.resx">
+      <DependentUpon>RenameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SnippetAddForm.resx">
+      <DependentUpon>SnippetAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+  </Target>
+</Project>
