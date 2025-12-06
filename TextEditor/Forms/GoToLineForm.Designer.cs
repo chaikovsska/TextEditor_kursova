@@ -53,22 +53,22 @@
             // btnGo
             // 
             this.btnGo.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGo.Location = new System.Drawing.Point(48, 98);
+            this.btnGo.Location = new System.Drawing.Point(45, 98);
             this.btnGo.Name = "btnGo";
-            this.btnGo.Size = new System.Drawing.Size(75, 23);
+            this.btnGo.Size = new System.Drawing.Size(79, 23);
             this.btnGo.TabIndex = 2;
-            this.btnGo.Text = "Go To";
+            this.btnGo.Text = "Перейти";
             this.btnGo.UseVisualStyleBackColor = true;
             this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
             // 
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(141, 98);
+            this.btnCancel.Location = new System.Drawing.Point(130, 98);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(100, 23);
             this.btnCancel.TabIndex = 3;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Скасувати";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 

@@ -95,7 +95,7 @@ namespace TextEditor
             CreateNewTab();
         }
 
-        public void CreateNewTab(string title = "New File", string content = "", string filePath = null)
+        public void CreateNewTab(string title = "Новий файл", string content = "", string filePath = null)
         {
             _tabManager.CreateTab(title, content, filePath);
         }
@@ -416,7 +416,7 @@ namespace TextEditor
 
             _recorder.Start(editor.SelectionStart);
             currentRecordedMacro = null;
-            MessageBox.Show("Macro recording started.");
+            MessageBox.Show("Запис макросу почався.");
         }
 
         private void stopRecordingToolStripMenuItem_Click(object sender, EventArgs e)
@@ -444,7 +444,7 @@ namespace TextEditor
         {
             if (currentRecordedMacro == null)
             {
-                MessageBox.Show("No macro recorded.");
+                MessageBox.Show("Немає макросу для запису.");
                 return;
             }
 
@@ -459,7 +459,7 @@ namespace TextEditor
         {
             if (currentRecordedMacro == null)
             {
-                MessageBox.Show("Nothing to save.");
+                MessageBox.Show("Відсутні дані для збереження.");
                 return;
             }
 
@@ -481,6 +481,11 @@ namespace TextEditor
                 _scrollTimer.Stop();
                 _scrollTimer.Start();
             }
+        }
+
+        private void viewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

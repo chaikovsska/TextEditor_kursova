@@ -42,7 +42,7 @@
             // 
             this.txtTitle.Location = new System.Drawing.Point(98, 22);
             this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(171, 22);
+            this.txtTitle.Size = new System.Drawing.Size(202, 22);
             this.txtTitle.TabIndex = 0;
             // 
             // title
@@ -50,22 +50,22 @@
             this.title.AutoSize = true;
             this.title.Location = new System.Drawing.Point(34, 25);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(36, 16);
+            this.title.Size = new System.Drawing.Size(52, 16);
             this.title.TabIndex = 1;
-            this.title.Text = "Title:";
+            this.title.Text = "Назва:";
             // 
             // shortcut
             // 
             this.shortcut.AutoSize = true;
             this.shortcut.Location = new System.Drawing.Point(34, 65);
             this.shortcut.Name = "shortcut";
-            this.shortcut.Size = new System.Drawing.Size(58, 16);
+            this.shortcut.Size = new System.Drawing.Size(89, 16);
             this.shortcut.TabIndex = 2;
-            this.shortcut.Text = "Shortcut:";
+            this.shortcut.Text = "Скорочення:";
             // 
             // txtShortcut
             // 
-            this.txtShortcut.Location = new System.Drawing.Point(98, 62);
+            this.txtShortcut.Location = new System.Drawing.Point(129, 62);
             this.txtShortcut.Name = "txtShortcut";
             this.txtShortcut.Size = new System.Drawing.Size(171, 22);
             this.txtShortcut.TabIndex = 3;
@@ -75,9 +75,9 @@
             this.content.AutoSize = true;
             this.content.Location = new System.Drawing.Point(34, 105);
             this.content.Name = "content";
-            this.content.Size = new System.Drawing.Size(55, 16);
+            this.content.Size = new System.Drawing.Size(45, 16);
             this.content.TabIndex = 4;
-            this.content.Text = "Content:";
+            this.content.Text = "Вміст:";
             // 
             // txtContent
             // 
@@ -89,21 +89,21 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(70, 269);
+            this.btnSave.Location = new System.Drawing.Point(53, 269);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(83, 23);
             this.btnSave.TabIndex = 6;
-            this.btnSave.Text = "Save";
+            this.btnSave.Text = "Зберегти";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(166, 269);
+            this.btnCancel.Location = new System.Drawing.Point(154, 269);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(103, 23);
             this.btnCancel.TabIndex = 7;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Скасувати";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 

@@ -158,7 +158,7 @@ namespace TextEditor.Services
             }
             else
             {
-                CreateTab("New File", "", null, new HashSet<int>()); // Створюємо нову, якщо закрили останню
+                CreateTab("Новий файл", "", null, new HashSet<int>()); // Створюємо нову, якщо закрили останню
             }
         }
 
@@ -179,11 +179,11 @@ namespace TextEditor.Services
                         _tabControl.SelectedIndex = i;
                         ContextMenuStrip ctxMenu = new ContextMenuStrip();
 
-                        ToolStripMenuItem renameItem = new ToolStripMenuItem("Rename");
+                        ToolStripMenuItem renameItem = new ToolStripMenuItem("Перейменувати");
                         renameItem.Click += (s, args) => PerformTabRename(tab);
                         ctxMenu.Items.Add(renameItem);
 
-                        string pinText = (meta != null && meta.IsPinned) ? "Unpin Tab" : "Pin Tab";
+                        string pinText = (meta != null && meta.IsPinned) ? "Відкріпити" : "Закріпити";
                         ToolStripMenuItem pinItem = new ToolStripMenuItem(pinText);
                         pinItem.Click += (s, args) =>
                         {
@@ -193,7 +193,7 @@ namespace TextEditor.Services
                         };
                         ctxMenu.Items.Add(pinItem);
 
-                        ToolStripMenuItem closeItem = new ToolStripMenuItem("Close");
+                        ToolStripMenuItem closeItem = new ToolStripMenuItem("Закрити");
                         closeItem.Click += (s, args) => RequestCloseTab(i);
                         ctxMenu.Items.Add(closeItem);
 
@@ -208,8 +208,8 @@ namespace TextEditor.Services
                         if (meta != null && meta.IsPinned)
                         {
                             MessageBox.Show(
-                                "This tab is pinned.\nUnpin it first before closing.",
-                                "Pinned Tab",
+                                "Ця вкладка закріплена.\nПеред закриттям спочатку необхідно відкріпити вкладку.",
+                                "Закріплена вкладка",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
 
@@ -248,14 +248,14 @@ namespace TextEditor.Services
 
                             if (File.Exists(newPath))
                             {
-                                MessageBox.Show("File already exists!"); return;
+                                MessageBox.Show("Файл вже існує!"); return;
                             }
 
                             File.Move(meta.FilePath, newPath);
                             UpdateBookmarksPath(meta.FilePath, newPath);
                             meta.FilePath = newPath;
                         }
-                        catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); return; }
+                        catch (Exception ex) { MessageBox.Show("Помилка: " + ex.Message); return; }
                     }
 
                     tab.Text = newName + (meta.IsModified ? "*" : "");

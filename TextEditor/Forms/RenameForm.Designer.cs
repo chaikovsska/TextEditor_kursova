@@ -39,9 +39,9 @@
             this.renameLabel.AutoSize = true;
             this.renameLabel.Location = new System.Drawing.Point(27, 22);
             this.renameLabel.Name = "renameLabel";
-            this.renameLabel.Size = new System.Drawing.Size(74, 16);
+            this.renameLabel.Size = new System.Drawing.Size(69, 16);
             this.renameLabel.TabIndex = 0;
-            this.renameLabel.Text = "New name:";
+            this.renameLabel.Text = "Нове ім\'я:";
             // 
             // txtNewName
             // 
@@ -52,21 +52,21 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(43, 58);
+            this.btnOK.Location = new System.Drawing.Point(12, 58);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.Size = new System.Drawing.Size(131, 23);
             this.btnOK.TabIndex = 2;
-            this.btnOK.Text = "Rename";
+            this.btnOK.Text = "Перейменувати";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(138, 58);
+            this.btnCancel.Location = new System.Drawing.Point(149, 58);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(101, 23);
             this.btnCancel.TabIndex = 3;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Скасувати";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 

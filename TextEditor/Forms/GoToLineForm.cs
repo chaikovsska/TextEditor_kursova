@@ -13,9 +13,9 @@ namespace TextEditor
             InitializeComponent();
             _maxLines = maxLines;
 
-            lblCurrentInfo.Text = $"You are currently on line: {currentLine}";
+            lblCurrentInfo.Text = $"Ви знаходитесь на рядку: {currentLine}";
 
-            lblLine.Text = $"Enter line number:";
+            lblLine.Text = $"Введіть номер рядка:";
 
             txtLineNumber.Text = currentLine.ToString();
             txtLineNumber.SelectAll(); 
@@ -27,8 +27,8 @@ namespace TextEditor
             {
                 if (line < 1 || line > _maxLines)
                 {
-                    MessageBox.Show($"Line number out of range.\nPlease enter a number between 1 and {_maxLines}.",
-                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Номер рядка поза діапазоном.\nБудь ласка, введіть число від 1 до {_maxLines}.",
+                                    "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtLineNumber.SelectAll();
                     txtLineNumber.Focus();
                     return;
@@ -40,7 +40,7 @@ namespace TextEditor
             }
             else
             {
-                MessageBox.Show("Please enter a valid number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Будь ласка, введіть коректне число.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtLineNumber.SelectAll();
                 txtLineNumber.Focus();
             }
